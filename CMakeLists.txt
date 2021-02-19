@@ -4,3 +4,5 @@ project(L01_cpp_basics_demo)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+add_executable(pointers src/pointers.cpp)
