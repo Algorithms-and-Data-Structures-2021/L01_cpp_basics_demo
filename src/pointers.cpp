@@ -81,6 +81,14 @@ int main() {
         printf("Pointer is OK\n");
     }
 
+    // сравнение указателей (ссылаются ли они на один и тот же участок памяти)
+    if (a_pointer == &c) {
+        cout << "\na_pointer == &c" << endl;
+
+    } else {
+        cout << "a_pointer != &c" << endl;
+    }
+
     // указатель на указатель
     // арифметика указателей
 
