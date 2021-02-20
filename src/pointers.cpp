@@ -54,6 +54,16 @@ int main() {
     // заметьте, что адреса переменных a и c разные,
     // несмотря на то, что значения переменных одинаковые
 
+    // изменение значения переменной, на которую указывает указатель;
+    // обращаемся к элементу через оператор разыменования * и устанавливаем новое значение
+    // через опретор = (равно)
+    cout << "\nChanging value of a using a pointer:" << endl;
+
+    *a_pointer = 100;
+
+    printf("Address of a: %d\n", &a);
+    printf("Value of a: %d\n", a);
+
     // есть ключевое слово, которое говорит, что указатель ни на что не указывает
     int * null_ptr = nullptr;  // Python: None, Java: null
 
@@ -61,7 +71,7 @@ int main() {
     if (null_ptr) {
         printf("Pointer is OK\n");
     } else {
-        printf("Pointer is nullptr\n");  // выполнится этот код
+        printf("\nPointer is nullptr\n");  // выполнится этот код
     }
 
     // или вот так
