@@ -28,6 +28,7 @@ int main() {
     // инициализация массива в момент его объявления
     int int_arr2[] = {1, 4, 2};         // вариант 1: без указания размера (размер вычисляется автоматически)
     int int_arr3[5] = {1, 4, 2, 5, 7};  // вариант 2: с указанием размера
+    int int_arr4[5] = {};               // вариант 3: с указанием размера, инициализировать все нулями
 
     int arr_element = int_arr[/* индекс элемента */0];  // копируем значение нулевого элемента в переменную
 
@@ -119,37 +120,37 @@ int main() {
     cout << endl;
 
     // массивы и указатели (может не понадобиться, если вы используете класс array)
-    int int_arr4[3] = {3, 2, 5};  // массив int-ов размера 3
+    int int_arr5[3] = {3, 2, 5};  // массив int-ов размера 3
 
     // элементы массива в памяти находятся последовательно
     // [0] [1] [2]  <--- ячейки памяти, каждая ячейка размером sizeof(int) = 4 байта
     //  3   2   5
 
     // выведем элементы массива
-    cout << "\nFor-each loop int_arr4:" << endl;
+    cout << "\nFor-each loop int_arr5:" << endl;
 
-    for (int element : int_arr4) {
+    for (int element : int_arr5) {
         cout << element << '\t';
     }
 
     cout << endl;
 
-    int *arr_begin_pointer = int_arr4;  // указатель на нулевой элемент массива (начало массива)
-    arr_begin_pointer = &int_arr4[0];   // идентично, берем адрес нулевого элемента массива
+    int *arr_begin_pointer = int_arr5;  // указатель на нулевой элемент массива (начало массива)
+    arr_begin_pointer = &int_arr5[0];   // идентично, берем адрес нулевого элемента массива
 
-    cout << "Pointer address int_arr4 = " << int_arr4 << endl;
-    cout << "Pointer address &int_arr4[0] = " << &int_arr4[0] << endl;
-    cout << "*arr_begin_pointer (or int_arr4[0]) = " << *arr_begin_pointer << endl;
+    cout << "Pointer address int_arr5 = " << int_arr5 << endl;
+    cout << "Pointer address &int_arr5[0] = " << &int_arr5[0] << endl;
+    cout << "*arr_begin_pointer (or int_arr5[0]) = " << *arr_begin_pointer << endl;
 
     int *next_arr_pointer = arr_begin_pointer + 1;  // передвигаем указатель на следующий элемент массива
     // свдиг указателя происходит на количество байт, равное размеру типа указателя, т.е. на sizeof(int) = 4 байта
     // это возможно по причине того, что элементы массива гарантированно находятся последовательно в памяти
 
-    cout << "Pointer address int_arr4[1] = " << next_arr_pointer << endl;
+    cout << "Pointer address int_arr5[1] = " << next_arr_pointer << endl;
 
     int *end_arr_pointer = arr_begin_pointer + 2;  // передвигаем указатель на последний элемент массива (3ий элемент)
 
-    cout << "Pointer address int_arr4[2] = " << end_arr_pointer << endl;
+    cout << "Pointer address int_arr5[2] = " << end_arr_pointer << endl;
 
     // заполнить массив элементами также можно при помощи функции fill
     // begin и end - итераторы, эту тему мы пока не затрагиваем,
