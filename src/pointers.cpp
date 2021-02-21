@@ -81,7 +81,7 @@ int main() {
 
     // или можно еще вот так
     if (!null_pointer) {
-        printf("Pointer is nullptr (1)\n");  // выполнится этот код
+        printf("Pointer is nullptr (!)\n");  // выполнится этот код
     } else {
         printf("Pointer is OK\n");
     }
@@ -94,7 +94,24 @@ int main() {
     }
 
     // указатель на указатель
-    // арифметика указателей
+    int var = 1;  // переменная
+
+    // указатель на <переменную var>
+    int *pointer_to_var = &var;  // переменная, значением которой является адрес на переменную var
+
+    // указатель на <указатель на переменную var>
+    int **pointer_to_pointer_to_var = &pointer_to_var;  // переменная, значением которой является адрес на переменную pointer_to_var
+
+    // можно продолжать бесконечно ... (не стоит так делать!)
+    int ***pointer_to_pointer_to_pointer_to_var = &pointer_to_pointer_to_var;
+
+    // схема концептуально выглядит следующим образом
+    // указатель указывает на переменную var
+    // далее есть указатель на указатель, который ссылается на указатель на переменную var и т.д.
+    // [pointer_to_pointer_to_pointer_to_var] -> [pointer_to_pointer_to_var] -> [pointer_to_var] -> [var]
+
+    printf("\nAddress of var: %X\n", &pointer_to_var);
+    printf("Address of pointer_to_var: %X\n", &pointer_to_pointer_to_var);
 
     return 0;
 }
