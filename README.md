@@ -22,5 +22,5 @@ git clone https://github.com/Algorthms-and-Data-Structures-2021/L01_cpp_basics_d
 
 2. Импортируете/открываете проект в среде разработки (как CMake проект, см. [здесь](https://www.jetbrains.com/help/clion/quick-cmake-tutorial.html)).
 
-3. Запуск программы осуществляет в среде разработки.
+3. Запуск программы осуществляется в среде разработки.
 
