@@ -53,6 +53,7 @@ int main() {
         cout << endl;
 
         delete[] arr;
+        arr = nullptr;
         resized_arr = nullptr;
     }
 
@@ -84,6 +85,14 @@ int main() {
             }
             cout << endl;
         }
+
+        // высвобождение памяти: каждую строку массива отдельно
+        for (int row_index = 0; row_index < num_rows; row_index++) {
+            delete[] array_2d[row_index];
+        }
+
+        delete[] array_2d;  // высвобождение памяти массива указателей на строки
+        array_2d = nullptr;
     }
 
 
