@@ -11,8 +11,6 @@ int main() {
 
     int arr_size = 3;
 
-    int *p = &arr_size;
-
     // возвращается указатель на начало массива
     int *arr = new int[arr_size];
 
