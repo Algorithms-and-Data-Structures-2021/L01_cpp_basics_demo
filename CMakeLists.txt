@@ -6,3 +6,5 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(pointers src/pointers.cpp)
+add_executable(static_arrays src/static_arrays.cpp)
+add_executable(references src/references.cpp)
