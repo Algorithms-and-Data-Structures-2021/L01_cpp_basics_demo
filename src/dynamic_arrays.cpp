@@ -1,5 +1,4 @@
 #include <iostream>  // cout
-#include <cstdio>    // printf
 #include <algorithm>
 
 using namespace std;
