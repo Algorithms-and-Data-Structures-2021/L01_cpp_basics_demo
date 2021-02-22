@@ -15,7 +15,7 @@
 
 **Внимание!** Необходимо авторизоваться в Repl.it со своего GitHub аккаунта. 
 
-[![Work in Repl.it](https://classroom.github.com/assets/work-in-replit-14baed9a392b3a25080506f3b7b6d57f295ec2978f6f33ec97e36a161684cbe9.svg)](https://repl.it/github/Algorthms-and-Data-Structures-2021/L01_cpp_basics_demo)
+[![Work in Repl.it](https://classroom.github.com/assets/work-in-replit-14baed9a392b3a25080506f3b7b6d57f295ec2978f6f33ec97e36a161684cbe9.svg)](https://repl.it/github/Algorithms-and-Data-Structures-2021/L01_cpp_basics_demo)
 
 
 Если Вы хотите внести изменения в проект и сохранить их у себя в репозитории, то Вам необходимо выполнить `Fork` проекта.
