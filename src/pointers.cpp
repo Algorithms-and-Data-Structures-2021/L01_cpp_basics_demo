@@ -16,12 +16,12 @@ int main() {
 
     cout << endl;
 
-    cout << "Getting pointers to variables 'a' and 'b' of type int:" << endl;
+    cout << "Pointers to variables 'a' and 'b':" << endl;
 
     // в C++ мы можем получить адрес на участок памяти, в которой хранится переменная.
     // Для этого используется оператор & (амперсанд).
-    // Адрес переменной хранится в новой переменной под названием указатель.
-    int *pointer_to_a = &a;  // получаем адрес в памяти, указатель на переменную типа int
+    // Адрес переменной хранится в новой переменной под названием "указатель".
+    int *pointer_to_a = &a;  // получаем адрес в памяти, т.е. указатель на переменную типа int
     int *pointer_to_b = &b;
 
     // int * - читаем справа налево: указатель на переменную типа int (* на int);
@@ -107,7 +107,8 @@ int main() {
     int *pointer_to_var = &var;  // переменная, значением которой является адрес 'var'
 
     // указатель на указатель на 'var'
-    int **pointer_to_pointer_to_var = &pointer_to_var;  // переменная, значением которой является адрес указателя 'pointer_to_var'
+    // переменная, значением которой является адрес указателя 'pointer_to_var'
+    int **pointer_to_pointer_to_var = &pointer_to_var;
 
     // можно продолжать бесконечно ...
     int ***pointer_to_pointer_to_pointer_to_var = &pointer_to_pointer_to_var;
@@ -127,7 +128,7 @@ int main() {
 
     cout << "Value of 'var': " << *pointer_to_var << endl;
 
-    // разыменовали указатель и получили указатель на 'var'
+    // разыменовали указатель и получили указатель на 'var';
     // чтобы получить значение 'var' необходимо еше раз разыменовать указатель
     cout << "Value of 'var': " << *(*pointer_to_pointer_to_var) << endl;
 

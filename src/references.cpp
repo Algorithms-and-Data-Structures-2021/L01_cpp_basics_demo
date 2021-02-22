@@ -1,6 +1,7 @@
 #include <iostream>  // cout
 #include <cstdio>    // printf
 #include <array>
+#include <cmath>     // pow
 
 using namespace std;
 
@@ -53,7 +54,7 @@ int main() {
     cout << "Value of 'a': " << a << endl;
 
     // примеры со ссылками
-    array<int, 5> arr = {0, 1, 2, 3, 4};
+    array<int, 5> arr = {0, 1, 2, 3, 4};  // [0, 1, 2, 3, 4]
 
     array<int, 5> &arr_reference = arr;  // ссылка на массив
 
@@ -63,7 +64,7 @@ int main() {
     // ссылка на элемент массива
     int &arr_elem_reference = arr[3];
 
-    arr_elem_reference = -1;  // можем изменить значение элемента массива
+    arr_elem_reference = -1;  // можем изменить значение элемента массива [0, 1, 2, -1, 4]
     // экивалентно записи: arr[3] = -1
 
     // пример с указателями
@@ -79,14 +80,27 @@ int main() {
 
     // если мы поменяем то, куда ссылается указатель 'a_pointer_copy', то с 'a_pointer' ничего не произойдет
 
-    int* &a_pointer_ref = a_pointer;  // ссылка на указатель
+    int *&a_pointer_ref = a_pointer;  // ссылка на указатель
 
     a_pointer_ref = &b;  // можем изменить то, на что ссылается указатель
     // эквивалентно записи: a_pointer = &b;
 
     a_pointer_ref = nullptr;  // теперь указатель 'a_pointer' нулевой
 
-    cout << a_pointer << endl;  // выведится 0
+    cout << "a_pointer_ref = " << a_pointer << endl;  // выведится 0
+
+    cout << endl;
+
+    // for-each с использованиемм ссылок
+    for (int &element_ref: arr) {
+        element_ref = pow(element_ref, 2);  // возведение в степень 2
+
+        cout << element_ref << '\t';
+    }
+
+    // arr = [0, 1, 4, 1, 16]
+
+    cout << endl;
 
     return 0;
 }

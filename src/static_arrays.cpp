@@ -6,11 +6,11 @@ using namespace std;
 
 int main() {
 
-    // Массив - это тип данных, который хранит набор последовательных элементов одного типа
-    // [5, 2, 7, 1, 9] - набор последовательно расположенных в памяти элементов одного типа
+    // Массив - это тип данных, который хранит набор последовательных элементов одного типа;
+    // Нпаример, [5, 2, 7, 1, 9] - массив int-ов.
 
     // объявление статического массива (т.е. массива фиксированного размера)
-    /* тип элементов */ int /* название массива */ int_arr[/* размер */ 3];
+    /* тип элементов */ int /* название массива */ arr[/* размер */ 3];
 
     // компилятор не должен выдавать ошибку того, что массив не инициализирован (хотя, может и выдасть)
     // неинициализарованный массив может быть заполнен "мусором", т.е. случайными данными
@@ -21,52 +21,55 @@ int main() {
     // доступ к элементу массива осуществляется при помощи оператора [] (квадратные скобки)
 
     // изменение значений элементов массива
-    int_arr[/* индекс элемента*/ 0] = /* новое значение */ -1;  // индексация начинается с 0
-    int_arr[1] = 9;
-    int_arr[2] = 1;
+    arr[/* индекс элемента*/ 0] = /* новое значение */ -1;  // индексация начинается с 0
+    arr[1] = 9;
+    arr[2] = 1;
+
+    // arr = [-1, 9, 1]
 
     // чтение значений элементов масссива
-    int arr_element = int_arr[/* индекс элемента */0];  // копируем значение нулевого элемента в переменную
+    int arr_element = arr[/* индекс элемента */0];  // копируем значение нулевого элемента в переменную
 
     cout << "Accessing array elements:" << endl;
     cout << "arr_element[0]: " << arr_element << endl;
 
     // обращение к элементу за пределами массива не вызывает ошибку
     // возвращается "мусор" - данные где-то там в памяти (будьте внимательны!)
-    cout << "arr_element[100]: " << int_arr[100] << endl;
+    cout << "arr_element[100]: " << arr[100] << endl;
 
     // инициализация массива в момент объявления
-    int int_arr2[] = {1, 4, 2};         // вариант 1: без указания размера (размер вычисляется автоматически)
-    int int_arr3[5] = {1, 4, 2, 5, 7};  // вариант 2: с указанием размера
-    int int_arr4[5] = {};               // вариант 3: с указанием размера, инициализировать все нулями
+    int arr_example_1[] = {1, 4, 2};         // вариант 1: без указания размера (размер вычисляется автоматически)
+    int arr_example_2[5] = {1, 4, 2, 5, 7};  // вариант 2: с указанием размера
+    int arr_example_3[5] = {};               // вариант 3: с указанием размера, инициализировать все нулями
 
     cout << endl;
 
     // работа с массивами в цикле
-    cout << "For loop with conditions:" << endl;
+    cout << "Iterate over static array 'arr':" << endl;
 
     for (int index = 0; index < 3; index++) {  // цикл по индексам от 0 до 2
 
-        cout << int_arr[index] << '\t' << endl;
+        cout << arr[index] << '\t';
 
-        if (int_arr[index] <= 0) {
+        if (arr[index] <= 0) {
             continue;  // пропускаем неположительные элементы
         }
 
         if (index == 1) {
             // блок кода при индексе == 1
-            cout << "Processing the 1st element of the array ..." << endl;
         }
 
-        int_arr[index] *= -1;  // умножаем элемент массива на 2 и сохраняем новое значение обратно в массив
+        arr[index] *= -1;  // умножаем элемент массива на -1 и сохраняем новое значение обратно в массив
     }
 
-    cout << endl;
+    // arr = [-1, 9, -1]
+
+    cout << endl << endl;
 
     // for-each цикл без использования индекса для обращения к элементам массива
-    cout << "For-each loop int_arr:" << endl;
+    cout << "Iterate over 'arr' (for-each loop):" << endl;
 
-    for (int element : int_arr) {  // каждую итерацию в переменную element копируется следуюшее значение элемента массива
+    for (int element : arr) {  // каждую итерацию в переменную element копируется следуюшее значение элемента массива
         // в этом случае нет необходимости знать размер массива
         cout << element << '\t';
     }
@@ -75,62 +78,65 @@ int main() {
 
     // проблема с массивами в стиле Си в том, что нам нужно постоянно помнить о размере массива;
     // обычно, чтобы с этим как-то работать, вместе с массивом создают переменную, указывающую на размер массива,
-    // что весьма неудобно и вызывает кучу потенциальных ошибок в коде
+    // что весьма неудобно и вызывает кучу потенциальных ошибок в коде...
     /**
      * Пример кода с переменной, обозначающей размер массива
      * const int N = 10;  // про const будет позже
      * int arr [N];
      */
 
-    // поэтому в современном C++ используется std::array - класс-оболочка массивов в стиле Си;
+    // поэтому в современном C++ используется класс array - оболочка массивов в стиле Си;
     // array хранит в себе размер массива, который можно получить при помощи вызова метода size()
 
-    array</* тип элементов */int, /* размер */ 5> cpp_int_arr = {};  // инициализация нулями
+    array</* тип элементов */ int, /* размер */ 5> cpp_arr = {};  // инициализация нулями [0, 0, 0, 0, 0]
 
     // доступ к элементам осуществляется через оператор [] или методом at(index)
-    cpp_int_arr[0] = 1;
-    cpp_int_arr[2] = 2;
+    cpp_arr[0] = 1;  // [1, 0, 0, 0, 0]
+    cpp_arr[2] = 2;  // [1, 0, 2, 0, 0]
 
     // доступ к элементу массива при помощи метода at(index)
-    cpp_int_arr.at(3) = 3;
+    cpp_arr.at(3) = 3;  // [1, 0, 2, 3, 0]
 
     cout << endl;
 
     // обращение к элементу через оператор [] за пределами массива не вызывает ошибку
     // возвращается "мусор" - данные где-то там в памяти (будьте внимательны!)
-    cout << "cpp_int_arr[100]: " << cpp_int_arr[100] << endl;
+    cout << "cpp_arr[100]: " << cpp_arr[100] << endl;
 
     // вывод значения за пределами массива вызывает ошибку при использовании метода at(index)
     // метод at(index) проверяет индекс на выход за пределы массива и может выбросить ошибку
-//    cpp_int_arr.at(100);  // <-- попробуйте раскомментировать и запустить
+//    cpp_arr.at(100);  // <-- попробуйте раскомментировать и запустить
 
     cout << endl;
 
     // получение размера C++ массива осуществляется при помощи метода size()
-    int cpp_arr_length = cpp_int_arr.size();
+    int cpp_arr_length = cpp_arr.size();
 
-    cout << "cpp_int_arr.size() = " << cpp_arr_length << endl;
+    cout << "cpp_arr.size() = " << cpp_arr_length << endl;
 
     cout << endl;
 
     // работа с C++ массивом в цикле (ничем не отличается от массива в стиле Си)
-    for (int index = 0; index < /* никаких магических значений размера массива */ cpp_int_arr.size(); index++) {
 
-        cout << cpp_int_arr[index] << '\t';
+    cout << "Iterate over 'cpp_arr':" << endl;
 
-        if (cpp_int_arr[index] <= 0) {
+    for (int index = 0; index < /* никаких магических значений размера массива */ cpp_arr.size(); index++) {
+
+        cout << cpp_arr[index] << '\t';
+
+        if (cpp_arr[index] <= 0) {
             continue;  // пропускаем неположительные элементы
         }
 
-        cpp_int_arr[index] *= -1;
+        cpp_arr[index] *= -1;
     }
 
     cout << endl << endl;
 
-    // for-each цикл
-    cout << "For-each loop cpp_int_arr:" << endl;
+    cout << "Iterate over 'cpp_arr' (for-each loop):" << endl;
 
-    for (int element : cpp_int_arr) {
+    // for-each
+    for (int element : cpp_arr) {
         cout << element << '\t';
     }
 
@@ -138,131 +144,138 @@ int main() {
 
     // массивы и указатели
 
-    int int_arr5[3] = {3, 2, 5};  // массив int-ов размера 3
+    int arr_ptr[3] = {3, 2, 5};  // [3, 2, 5]
 
     // элементы массива в памяти находятся последовательно
-    // [0] [1] [2]  <--- ячейки памяти, каждая ячейка размером sizeof(int) байт
-    //  3   2   5
+    // [0] [1] [2]  <--- соседние ячейки памяти, каждая ячейка размером sizeof(int) байт
+    //  3   2   5   <--- значения в ячейках памяти
 
     cout << endl;
 
-    // выведем элементы массива
-    cout << "For-each loop int_arr5:" << endl;
+    cout << "Iterate over 'arr_ptr' (for-each loop):" << endl;
 
-    for (int element : int_arr5) {
+    for (int element : arr_ptr) {
         cout << element << '\t';
     }
 
-    cout << endl;
+    cout << endl << endl;
 
-    int *arr_begin_pointer = int_arr5;  // указатель на нулевой элемент массива (начало массива)
-    arr_begin_pointer = &int_arr5[0];   // идентично, берем адрес нулевого элемента массива
+    int *arr_begin_pointer = arr_ptr;  // указатель на нулевой элемент массива (начало массива)
 
-    cout << "Pointer address int_arr5 = " << int_arr5 << endl;
-    cout << "Pointer address &int_arr5[0] = " << &int_arr5[0] << endl;
+    arr_begin_pointer = &arr_ptr[0];   // идентично, берем адрес нулевого элемента массива
 
-    cout << "*arr_begin_pointer (or int_arr5[0]) = " << *arr_begin_pointer << endl;
+    cout << "Address of arr_ptr = " << arr_ptr << endl;
+    cout << "Address of arr_ptr[0] = " << &arr_ptr[0] << endl;
+
+    cout << "arr_ptr[0] = " << *arr_begin_pointer << endl;
 
     int *next_arr_pointer = arr_begin_pointer + 1;  // передвигаем указатель на следующий элемент массива
     // сдвиг указателя происходит на количество байт, равное размеру типа указателя, т.е. на sizeof(int),
     // это возможно потому что элементы массива гарантированно находятся последовательно в памяти
 
-    cout << "Pointer address int_arr5[1] = " << next_arr_pointer << endl;
+    cout << "Address of arr_ptr[1] = " << next_arr_pointer << endl;
+    cout << "arr_ptr[1] = " << *next_arr_pointer << endl;
 
     int *end_arr_pointer = arr_begin_pointer + 2;  // передвигаем указатель на последний элемент массива (3ий элемент)
 
-    cout << "Pointer address int_arr5[2] = " << end_arr_pointer << endl;
+    cout << "Address of arr_ptr[2] = " << end_arr_pointer << endl;
+    cout << "arr_ptr[2] = " << *end_arr_pointer << endl;
 
-    // заполнить массив элементами также можно при помощи функции fill
+    // заполнить массив элементами также можно при помощи функции fill;
     // begin и end - итераторы, эту тему мы пока не затрагиваем,
     // можно думать о них, как об указателях на начало и конец массива
-    fill(cpp_int_arr.begin(), cpp_int_arr.end(), /* значения элементов */0);
+    fill(cpp_arr.begin(), cpp_arr.end(), /* значения элементов */0);  // cpp_arr = [0, 0, 0, 0, 0]
 
-    // или при помощи метода класса array
-    cpp_int_arr.fill(0);
+    // или можно использовать метод класса array
+    cpp_arr.fill(5);  // [5, 5, 5, 5, 5]
 
     // устанавливаем последние два элемента массива в значение 1
-    fill(cpp_int_arr.end() - 2, cpp_int_arr.end(), 1);
+    fill(cpp_arr.end() - 2, cpp_arr.end(), 1);  // cpp_arr = [5, 5, 5, 1, 1]
 
-    cout << "\nFor-each loop cpp_int_arr (fill):" << endl;
+    cout << "\nIterate over 'cpp_arr' (for-each loop) after fill():" << endl;
 
-    for (int element : cpp_int_arr) {
+    for (int element : cpp_arr) {
         cout << element << '\t';
     }
 
     cout << endl;
 
     // массив в стиле Си можно тоже заполнить каким-либо значением при помощи функции fill
-    int int_arr6[3] = {};
+    int arr_fill[3] = {};  // [0, 0, 0]
 
-    fill(/* указатель на начало массива */ int_arr6,
-            /* указатель на элемент за концом массива */int_arr6 + 3,
+    fill(/* указатель на начало массива */ arr_fill,
+            /* указатель на элемент за концом массива */arr_fill + 3,
             /* значение */ 6);
+
+    // arr_fill = [6, 6, 6]
 
     // копирование массивов может осуществляться по-разному;
     // если мы работаем с массивом в стиле Си, то придется использовать функцию копирования copy
-    int copy_int_arr[5];
+    int arr_copy[3]{};  // [0, 0, 0]
 
-    copy(/* указатель на начало массива */ int_arr,
-            /* указатель на элемент за концом массива */int_arr + 5,
-            /* куда положить результат, другой массив */ copy_int_arr);
+    copy(/* указатель на начало массива */ arr,
+            /* указатель на элемент за концом массива */arr + 3,
+            /* куда положить результат, другой массив */ arr_copy);
 
+    // arr_copy = [-1, -9, -1]
     cout << endl;
 
-    cout << "For-each loop copy_int_arr (copy):" << endl;
+    cout << "Iterate over 'arr_copy' (for-each loop) after copy():" << endl;
 
-    for (int element : copy_int_arr) {
+    for (int element : arr_copy) {
         cout << element << '\t';
     }
 
-    cout << endl;
+    cout << endl << endl;
 
-    cout << "\nFor-each loop int_arr (source):" << endl;
+    cout << "Iterate over 'arr' (for-each loop):" << endl;
 
-    for (int element : int_arr) {
+    for (int element : arr) {
         cout << element << '\t';
     }
 
     cout << endl;
 
     // копирование C++ массивов
-    array<int, 5> copy_cpp_int_arr = cpp_int_arr;  // массив автоматически скопируется (склонируется)
-    // здесь используется поведение оператора копирования =
+
+    array<int, 5> cpp_arr_copy = cpp_arr;  // массив автоматически скопируется (склонируется)
 
     cout << endl;
 
-    cout << "For-each loop copy_cpp_int_arr (operator =):" << endl;
+    cout << "Iterate over 'cpp_arr_copy' (for-each loop):" << endl;
 
-    for (int element : copy_cpp_int_arr) {
+    for (int element : cpp_arr_copy) {
         cout << element << '\t';
     }
 
     cout << endl << endl;
 
-    cout << "For-each loop cpp_int_arr (source):" << endl;
+    cout << "Iterate over 'cpp_arr' (for-each loop):" << endl;
 
-    for (int element : cpp_int_arr) {
+    for (int element : cpp_arr) {
         cout << element << '\t';
     }
 
     cout << endl;
 
     // многомерные статические массивы (матрицы)
+
     int array_2d[/* кол-во строк */3][/* кол-во столбцов */2] = {{1, 3},
                                                                  {5, 7},
                                                                  {9, 11}};
 
     // можно инициализировать массив следующим эквивалентным образом,
+    // int array_2d[3][2] = {1, 3, 5, 7, 9, 11}
     // данные сами распределятся по условным строкам и столбцам
 
-    // int array_2d[3][2] = {1, 3, 5, 7, 9, 11}
-
-    // указатели на начало строк массива (на нулевые элементы строк)
+    // указатели на начало строк массива (на нулевые элементы каждой строки)
     int *array_2d_0th_row = array_2d[0];
     int *array_2d_1st_row = array_2d[1];
     int *array_2d_2nd_row = array_2d[2];
 
-    cout << "\nAddresses and values of 0th elements in rows:" << endl;
+    cout << endl;
+
+    cout << "Addresses and values of 0th elements in rows:" << endl;
 
     printf("array_2d[0] at %d: %d\n", array_2d_0th_row, *array_2d_0th_row);
     printf("array_2d[1] at %d: %d\n", array_2d_1st_row, *array_2d_1st_row);
@@ -280,7 +293,7 @@ int main() {
     // т.е. от текущего элемента к следующему элементу
 
     for (int *pointer = array_2d_begin; pointer <= array_2d_end; pointer++) {
-        printf("array_2d at %d: %d\n", pointer, *pointer);
+        printf("array_2d at %X: %d\n", pointer, *pointer);
     }
 
     cout << endl;
@@ -304,8 +317,8 @@ int main() {
     // многомерные массивы в стиле C++
 
     // массив array<..., 3> из массивов array<int, 2>
-    // 3 строки и 2 столбца
-    array<array<int, 2>, 3> cpp_array_2d = {};  // инициализируем нулями
+    // 3 строки и 2 столбца = 6 элементов
+    array<array<int, 2>, 3> cpp_array_2d = {};  // инициализируем нулями, [0, 0, 0, 0, 0, 0]
 
     // получение кол-ва строк и столбцов многомерного массива в стиле C++
     int cpp_array_2d_num_rows = cpp_array_2d.size();
@@ -316,16 +329,22 @@ int main() {
     printf("cpp_array_2d dimensions: %d x %d\n", cpp_array_2d_num_rows, cpp_array_2d_num_cols);
 
     // доступ к элементам через оператор []
-    int cpp_array_2d_element = cpp_array_2d[0][1];
+    cout << "cpp_array_2d[0][1] = " << cpp_array_2d[0][1] << endl;
 
-    cpp_array_2d[0][0] = 1;
+    cpp_array_2d[0][1] = 1;  // [0, 1, 0, 0, 0, 0]
 
-    // for-each итерация многомерного массива
+    cout << "Iterating over cpp_array_2d:" << endl;
+
+    // for-each
     for (/* array<int, 2> */ auto cpp_array_row: cpp_array_2d) {
         for (int element : cpp_array_row) {
-            // блок кода
+            cout << element << '\t';
         }
+
+        cout << endl;
     }
+
+    cout << endl;
 
     return 0;
 }
