@@ -21,8 +21,7 @@
 Если Вы хотите внести изменения в проект и сохранить их у себя в репозитории, то Вам необходимо выполнить `Fork` проекта.
 Подробные инструкции можно прочесть по [ссылке](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo).
 
-1. Клонируете проект к себе на компьютер.
-в терминале (консоли):
+1. Клонируете проект к себе на компьютер в терминале (консоли):
 ```shell
 git clone https://github.com/Algorithms-and-Data-Structures-2021/L01_cpp_basics_demo.git
 ```
