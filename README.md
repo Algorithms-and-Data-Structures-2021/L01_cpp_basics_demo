@@ -2,8 +2,6 @@
 
 ![Build status](https://github.com/Algorithms-and-Data-Structures-2021/L01_cpp_basics_demo/actions/workflows/cmake.yml/badge.svg)
 
-Демо код занятия №01 - Основы C++ (Часть 1)
-
 Рассматриваемые темы:
 - указатели и операторы `&` и `*`, указатели на указатели, `nullptr`;
 - статические массивы, связь с указателями, класс `array`, копирование и заполнение массивов;
