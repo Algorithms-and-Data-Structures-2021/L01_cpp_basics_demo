@@ -1,4 +1,4 @@
-# L01_cpp_basics_demo
+# Основы C++ (Часть 1)
 
 ![Build status](https://github.com/Algorithms-and-Data-Structures-2021/L01_cpp_basics_demo/actions/workflows/cmake.yml/badge.svg)
 
