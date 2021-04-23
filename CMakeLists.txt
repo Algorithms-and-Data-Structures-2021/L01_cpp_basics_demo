@@ -1,8 +1,9 @@
-cmake_minimum_required(VERSION 3.2)
+cmake_minimum_required(VERSION 3.12 FATAL_ERROR)
 
-project(L01_cpp_basics_demo)
+project(cpp-basics-demo)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(pointers src/pointers.cpp)
